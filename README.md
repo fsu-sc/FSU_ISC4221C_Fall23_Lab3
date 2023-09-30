@@ -5,6 +5,8 @@ We want to see how we can use Monte Carlo to solve
 a difficult problem in scientific computing, locating the global extrema of a function. We
 will only consider functions of one independent variable.
 
+**All your answers should be in a single file named `answers_lab.py`, be careful with the names of your functions. Your report should be a self contained markdown file with a description of your answers and the code copied inside of it.**
+
 ### 1D Optimization Problem
 
 We consider the 1D optimization problem of finding a point $x^*$ in a given domain $D \subset \mathbb{R}^1$ where the function $f(x)$ attains its global minimum. If we can solve this problem, then we can also find its global maximum by finding the global minimum of $-f(x)$.
