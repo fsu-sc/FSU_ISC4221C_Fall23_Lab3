@@ -5,25 +5,25 @@ We want to see how we can use Monte Carlo to solve
 a difficult problem in scientific computing, locating the global extrema of a function. We
 will only consider functions of one independent variable.
 
-**All your answers should be in a single file named `answers_lab.py`, be careful with the names of your functions. Your report should be a self contained markdown file with a description of your answers and the code copied inside of it.**
+**All your answers should be in a single file named `answers_lab.py`; be careful with the names of your functions. Your report should be a self-contained markdown file with a description of your answers and the code copied inside of it.**
 
 ### 1D Optimization Problem
 
 We consider the 1D optimization problem of finding a point $x^*$ in a given domain $D \subset \mathbb{R}^1$ where the function $f(x)$ attains its global minimum. If we can solve this problem, then we can also find its global maximum by finding the global minimum of $-f(x)$.
 
-The difficulty with optimization is that the function may have several local minima. Most minimization algorithms can be "trapped" by a local minimum. We are going to see how we can develop an algorithm which uses Monte Carlo sampling to estimate the location of the global minimum.
+The difficulty with optimization is that the function may have several local minima. Most minimization algorithms can be "trapped" by a local minimum. We are going to see how we can develop an algorithm that uses Monte Carlo sampling to estimate the location of the global minimum.
 
 ### Why Randomize?
 
-It would be fair to ask why we bother randomizing this algorithm. Why not just divide up the region into say 500 equally spaced points; then you will guarantee that you sample all the space just as well (even better, because you know there can't be any large gaps). There are several reasons to use pseudorandom sequences to sample the domain. One of the reasons is that in two or three dimensions we may have a very complicated geometry. Another reason is that when we go to higher dimensions, i.e., a function of several variables, then our 500 points in one dimension becomes $500^d$ in $d$ dimensions. It should be noted that there are much better sampling methods than Monte Carlo and those should be used in practice.
+It would be fair to ask why we bother randomizing this algorithm. Why not just divide up the region into, say 500 equally spaced points; then you will guarantee that you sample all the space just as well (even better, because you know there can't be any large gaps). There are several reasons to use pseudorandom sequences to sample the domain. One of the reasons is that in two or three dimensions we may have a very complicated geometry. Another reason is that when we go to higher dimensions, i.e., a function of several variables, then our 500 points in one dimension become $500^d$ in $d$ dimensions. It should be noted that there are much better sampling methods than Monte Carlo and those should be used in practice.
 
 ## Algorithm Description
 
-Assume that we want to find the global minimum of $f(x)$ on $[a, b]$. We want to do this in as few function evaluations (i.e., evaluation of$f$at a point) as possible. Our first strategy will be to sample $[a, b]$ with $n$ points $\{x_{i}\}_{i=1}^{n}$ using Monte Carlo and evaluate the function at each of those points. As we sample each point we keep track of which$x$value has the smallest function value. From all the sampling points we choose the location where $f(x)$ takes on its minimum value and that will be our answer. This algorithm will converge as $n \to \infty$. We will consider modifications to this algorithm in the exercises.
+Assume that we want to find the global minimum of $f(x)$ on $[a, b]$. We want to do this in as few function evaluations (i.e., evaluation of $f$ at a point) as possible. Our first strategy will be to sample $[a, b]$ with $n$ points $\{x_{i}\}_{i=1}^{n}$ using Monte Carlo and evaluate the function at each of those points. As we sample each point, we keep track of which $x$ value has the smallest function value. From all the sampling points, we choose the location where $f(x)$ takes on its minimum value and that will be our answer. This algorithm will converge as $n \to \infty$. We will consider modifications to this algorithm in the exercises.
 
 ## Test Functions
 
-We consider three functions, each more difficult than the previous for locating its minimum.
+We consider three functions, each more difficult than the previous to locate its minimum.
 
 * $f_1(x) = | \cos( \pi x) |\text{ on } [0,1]$
 
@@ -38,9 +38,9 @@ To compare codes, please use a seed of 56789 for easier grading.
 
 ### 1. Plotting (10 pts)
 
-1. Plot the three functions $f_i(x)$, $i = 1, 3$ on their domains. From the graphs estimate the location of the global minimum and all local minimum of the functions.
+1. Plot the three functions $f_i(x)$, $i = 1, 3$ on their domains. From the graphs, estimate the location of the global minimum and all local minimums of the functions.
 
-Similar to the following figure (In text estimation of global and local mimimum is fine)):
+Similar to the following figure (Text estimation of global and local minimum is fine)):
 
 ![Images](fs3.png)
 
@@ -49,7 +49,7 @@ Similar to the following figure (In text estimation of global and local mimimum 
 
 Write a code to implement our sampling algorithm for locating a global minimum of a function. Your code should have the following structure:
 
-- **name**: $find_min_mc$
+- **name**: `find_min_mc`
 - **Input**: $n$ the number of sampling points;
 - **xl, xr** the endpoints of the interval where the function is defined (so you can map the random point to that interval)
 - **f** the function to be minimized
@@ -64,7 +64,7 @@ def find_min_mc(n, xl, xr, f):
 You can make sure your code is working properly by finding the local minimum of our "easy" function 
 $f_1(x)$. For $f_1(x)$ we know the exact location of its global minimum. 
 
-(10/40 Pts) Make a table of$n$and the error in the location of the minimum as$n$increases. For example, $n = 25, 50, 100, 200, 400, 800, 1600$.
+(10/40 Pts) Make a table of $n$ and the error in the location of the minimum as $n$ increases. For example, $n = 25, 50, 100, 200, 400, 800, 1600$.
 
 ### 3. Advanced Sampling Strategy (40 pts)
 
