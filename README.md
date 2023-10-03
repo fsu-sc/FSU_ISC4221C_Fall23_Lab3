@@ -58,7 +58,7 @@ Write a code to implement our sampling algorithm for locating a global minimum o
 ```Python
 def find_min_mc(n, xl, xr, f):
     # Your code here
-    return (xmin, ymin)
+    return [xmin, ymin]
 ```
 
 You can make sure your code is working properly by finding the local minimum of our "easy" function 
@@ -81,5 +81,5 @@ Remember that the algorithm is not guaranteed to converge to a global minimum bu
 ```Python
 def find_min_mc_wzoom(n, xl, xr, f, nzoom):
     # Your code here
-    return (xmin, ymin), minval
+    return [xmin, ymin]
 ```
