@@ -38,7 +38,7 @@ To compare codes, please use a seed of 56789 for easier grading.
 
 ### 1. Plotting (10 pts)
 
-1. Plot the three functions $f_i(x)$, $i = 1, 3$ on their domains. From the graphs, estimate the location of the global minimum and all local minimums of the functions.
+1. Plot the three functions $f_i(x)$, $i = 1, 3$ on their domains. Save them and include them in your folder. From the graphs, estimate the location of the global minimum and all local minimums of the functions.
 
 Similar to the following figure (Text estimation of global and local minimum is fine)):
 
